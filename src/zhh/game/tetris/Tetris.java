@@ -9,42 +9,42 @@ import zhh.game.tetris.global.Config;
 import zhh.game.tetris.view.TetrisFrame;
 
 /**
- * ¶íÂÞË¹·½¿éÓÎÏ·<br>
+ * ä¿„ç½—æ–¯æ–¹å—æ¸¸æˆ<br>
  * <br>
- * ÓÎÏ·¼ò½é:<br>
- * ¶íÂÞË¹·½¿éÊÇÒ»¿îÒæÖÇ·½¿éÓÎÏ·<br>
- * Õâ¿îÓÎÏ·×î³õÊÇÓÉËÕÁªµÄµçÄÔ¿ÆÑ§¼ÒÅÁ¼ªÌØÅµ·ò(Alex Pajitnov)ÓÚ1985ÄêÖÆ×÷µÄ<br>
- * ×÷Õß¸øÁËËûÒ»¸öÔ´×ÔÏ£À°×Ö4(tetra)µÄÃû×ÖTetris<br>
- * 1989ÄêÓÉÈÎÌìÌÃÓÚ·¢ÐÐGameBoy°æ, ÍÆ³öºó·çÃÒÈ«Çò, 
- * ³ÉÎªÒæÖÇ·½¿éÀàÐÍÓÎÏ·ÖÐÖªÃû¶È×î¸ßµÄÒ»¿î<br>
- * Ëü¿´ËÆ¼òµ¥µ«È´±ä»¯ÎÞÇî, ÉÏÊÖ¼«ÆäÈÝÒ×, 
- * µ«ÊÇÒªÊìÁ·µØÕÆÎÕÆäÖÐµÄ²Ù×÷Óë°Ú·Å¼¼ÇÉ, ÄÑ¶ÈÈ´²»µÍ<br>
+ * æ¸¸æˆç®€ä»‹:<br>
+ * ä¿„ç½—æ–¯æ–¹å—æ˜¯ä¸€æ¬¾ç›Šæ™ºæ–¹å—æ¸¸æˆ<br>
+ * è¿™æ¬¾æ¸¸æˆæœ€åˆæ˜¯ç”±è‹è”çš„ç”µè„‘ç§‘å­¦å®¶å¸•å‰ç‰¹è¯ºå¤«(Alex Pajitnov)äºŽ1985å¹´åˆ¶ä½œçš„<br>
+ * ä½œè€…ç»™äº†ä»–ä¸€ä¸ªæºè‡ªå¸Œè…Šå­—4(tetra)çš„åå­—Tetris<br>
+ * 1989å¹´ç”±ä»»å¤©å ‚äºŽå‘è¡ŒGameBoyç‰ˆ, æŽ¨å‡ºåŽé£Žé¡å…¨çƒ, 
+ * æˆä¸ºç›Šæ™ºæ–¹å—ç±»åž‹æ¸¸æˆä¸­çŸ¥ååº¦æœ€é«˜çš„ä¸€æ¬¾<br>
+ * å®ƒçœ‹ä¼¼ç®€å•ä½†å´å˜åŒ–æ— ç©·, ä¸Šæ‰‹æžå…¶å®¹æ˜“, 
+ * ä½†æ˜¯è¦ç†Ÿç»ƒåœ°æŽŒæ¡å…¶ä¸­çš„æ“ä½œä¸Žæ‘†æ”¾æŠ€å·§, éš¾åº¦å´ä¸ä½Ž<br>
  * <br>
- * Íæ·¨¼ò½é:<br>
- * ÓÎÏ·¾ßÓÐÒ»¸öÓÃÓÚ°Ú·ÅÐ¡·½¿éµÄÆ½ÃæÐéÄâ³¡µØ<br>
- * Ò»×éÓÉ¼¸¸öÐ¡·½¿é×é³ÉµÄ¹æÔòÐÎ×´(Tetromino)<br>
- * ÓÎÏ·Ã¿´ÎËæ»úÊä³öÒ»ÖÖÐÎ×´µ½³¡µØ¶¥²¿, ×Ô¶¯ÒÔÒ»¶¨µÄËÙ¶ÈÏÂÂä<br>
- * ÓÃ»§ÔÚÐÎ×´µÄ¹ý³ÌÖÐ¿ÉÒÔ¿ØÖÆÐÎ×´µÄ×óÓÒÒÆ¶¯¼°Ðý×ªÒÔ½«ÐÎ×´Ìî³äµ½³¡µØÖÐ<br>
- * Ö±ÖÁÐÎ×´ÏÂÂäÖÁ³¡µØµ×²¿»ò±»³¡µØÖÐÒÑÓÐµÄ·½¿é×èµ²¶ø²»ÄÜÔÙÏÂÂä<br>
- * ÓÎÏ·ÔÙ´ÎÊä³öÒ»¸öÐÎ×´, ÖÜ¶ø¸´Ê¼<br>
- * Èç¹ûÕâ´ÎÌî³ä½«³¡µØµÄÒ»ÐÐ»ò¶àÐÐÍêÈ«ÌîÂú, Ôò×é³ÉÕâÐ©ÐÐµÄËùÓÐ·½¿é½«±»Ïû³ý<br>
- * ²¢ÇÒÒÔ´ËÀ´»»È¡Ò»¶¨µÄ»ý·Ö½±Àø<br>
- * ¶øÎ´±»Ïû³ýµÄ·½¿é»áÒ»Ö±ÀÛ»ý, ²¢¶ÔºóÀ´µÄÐÎ×´°Ú·ÅÔì³É¸÷ÖÖÓ°Ïì<br>
- * Èç¹ûÏÂÒ»¸öÐÎ×´µÄÊä³öÎ»ÖÃÒÑ¾­±»Î´Ïû³ýµÄ·½¿éËùÕ¼¾Ý£¬ÔòÓÎÏ·½áÊø<br>
- * @author fuyunliang
+ * çŽ©æ³•ç®€ä»‹:<br>
+ * æ¸¸æˆå…·æœ‰ä¸€ä¸ªç”¨äºŽæ‘†æ”¾å°æ–¹å—çš„å¹³é¢è™šæ‹Ÿåœºåœ°<br>
+ * ä¸€ç»„ç”±å‡ ä¸ªå°æ–¹å—ç»„æˆçš„è§„åˆ™å½¢çŠ¶(Tetromino)<br>
+ * æ¸¸æˆæ¯æ¬¡éšæœºè¾“å‡ºä¸€ç§å½¢çŠ¶åˆ°åœºåœ°é¡¶éƒ¨, è‡ªåŠ¨ä»¥ä¸€å®šçš„é€Ÿåº¦ä¸‹è½<br>
+ * ç”¨æˆ·åœ¨å½¢çŠ¶çš„è¿‡ç¨‹ä¸­å¯ä»¥æŽ§åˆ¶å½¢çŠ¶çš„å·¦å³ç§»åŠ¨åŠæ—‹è½¬ä»¥å°†å½¢çŠ¶å¡«å……åˆ°åœºåœ°ä¸­<br>
+ * ç›´è‡³å½¢çŠ¶ä¸‹è½è‡³åœºåœ°åº•éƒ¨æˆ–è¢«åœºåœ°ä¸­å·²æœ‰çš„æ–¹å—é˜»æŒ¡è€Œä¸èƒ½å†ä¸‹è½<br>
+ * æ¸¸æˆå†æ¬¡è¾“å‡ºä¸€ä¸ªå½¢çŠ¶, å‘¨è€Œå¤å§‹<br>
+ * å¦‚æžœè¿™æ¬¡å¡«å……å°†åœºåœ°çš„ä¸€è¡Œæˆ–å¤šè¡Œå®Œå…¨å¡«æ»¡, åˆ™ç»„æˆè¿™äº›è¡Œçš„æ‰€æœ‰æ–¹å—å°†è¢«æ¶ˆé™¤<br>
+ * å¹¶ä¸”ä»¥æ­¤æ¥æ¢å–ä¸€å®šçš„ç§¯åˆ†å¥–åŠ±<br>
+ * è€Œæœªè¢«æ¶ˆé™¤çš„æ–¹å—ä¼šä¸€ç›´ç´¯ç§¯, å¹¶å¯¹åŽæ¥çš„å½¢çŠ¶æ‘†æ”¾é€ æˆå„ç§å½±å“<br>
+ * å¦‚æžœä¸‹ä¸€ä¸ªå½¢çŠ¶çš„è¾“å‡ºä½ç½®å·²ç»è¢«æœªæ¶ˆé™¤çš„æ–¹å—æ‰€å æ®ï¼Œåˆ™æ¸¸æˆç»“æŸ<br>
+ * @author Tcerbiot
  */
 public class Tetris {
 
 	@SuppressWarnings("rawtypes")
 	public static void main(String args[]) {
 		try {
-			// ¸ü¸ÄÓ¦ÓÃ³ÌÐòµÄÄ¬ÈÏÍâ¹Û
+			// æ›´æ”¹åº”ç”¨ç¨‹åºçš„é»˜è®¤å¤–è§‚
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 //			UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
 			
-			// ¸ü¸ÄÓ¦ÓÃ³ÌÐòµÄÄ¬ÈÏ×ÖÌå
+			// æ›´æ”¹åº”ç”¨ç¨‹åºçš„é»˜è®¤å­—ä½“
 			Enumeration keys = UIManager.getDefaults().keys();
 			while (keys.hasMoreElements()) {
 				Object key = keys.nextElement();
