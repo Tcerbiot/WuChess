@@ -4,15 +4,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 /**
- * Ö»¶Á¼àÌıÆ÷ÊµÀı
- * @author fuyunliang
+ * åªè¯»ç›‘å¬å™¨å®ä¾‹
+ * @author Tcerbiot
  */
 public class ReadOnlyListener implements  KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if(e.isAltDown()) 
 			return;
 		int keyCode = e.getKeyCode();
-		// Ö»ÔÊĞí¸´ÖÆºÍ¹â±êÒÆ¶¯
+		// åªå…è®¸å¤åˆ¶å’Œå…‰æ ‡ç§»åŠ¨
 		if (keyCode != KeyEvent.VK_C && keyCode != KeyEvent.VK_A 
 				&& keyCode != KeyEvent.VK_PAGE_UP
 				&& keyCode != KeyEvent.VK_PAGE_DOWN
@@ -23,12 +23,12 @@ public class ReadOnlyListener implements  KeyListener {
 	}
 
 	public void keyReleased(KeyEvent e) {
-		// ½ûÖ¹ËùÓĞ²Ù×÷
+		// ç¦æ­¢æ‰€æœ‰æ“ä½œ
 		e.consume();
 	}
 
 	public void keyTyped(KeyEvent e) {
-		// ½ûÖ¹ÊäÈë
+		// ç¦æ­¢è¾“å…¥
 		e.consume();
 	}
 }
